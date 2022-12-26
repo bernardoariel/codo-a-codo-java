@@ -6,7 +6,6 @@ package modelo;
 
 import config.Conexion;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,21 +38,21 @@ public class SociosDAO
        try
        {
                   
-           ps=conexion.prepareStatement("select * from socios");
+           ps=conexion.prepareStatement("select * from pacientes");
 	   rs=ps.executeQuery();
            
            while(rs.next())
            {
-               int id=rs.getInt("idSocio");
+               int id=rs.getInt("idPaciente");
                String nombre=rs.getString("nombre");
                String apellido=rs.getString("apellido");
                String direccion=rs.getString("direccion");
-               String localidad=rs.getString("localidad");             
+               String foto=rs.getString("foto");             
                LocalDate fecha = rs.getDate("fnac").toLocalDate();
                String email=rs.getString("email");
                String telefono=rs.getString("telefono");
                boolean activo=rs.getBoolean("activo");                 
-               Socios s1=new Socios(id,nombre,apellido,direccion,localidad,fecha,email,telefono,activo);
+               Socios s1=new Socios(id,nombre,apellido,direccion,foto,fecha,email,telefono,activo);
                lista.add(s1);                
 
            }
@@ -80,21 +79,21 @@ public class SociosDAO
         Socios s1=null;
         try
         {
-            ps=conexion.prepareStatement("select * from socios where idSocio=?");
+            ps=conexion.prepareStatement("select * from pacientes where idPaciente=?");
             ps.setInt(1, _id);
             rs=ps.executeQuery();
             while(rs.next())
             {
-                int id=rs.getInt("idSocio");
+                int id=rs.getInt("idPaciente");
                 String nombre=rs.getString("nombre");
                 String apellido=rs.getString("apellido");
                 String direccion=rs.getString("direccion");
-                String localidad=rs.getString("Localidad");
+                String foto=rs.getString("foto");
                 LocalDate fnac = rs.getDate("fnac").toLocalDate();
                 String email=rs.getString("email");
                 String telefono=rs.getString("telefono");
                 boolean activo=rs.getBoolean("activo");                 
-                s1=new Socios(id,nombre,apellido,direccion,localidad,fnac,email,telefono,activo);
+                s1=new Socios(id,nombre,apellido,direccion,foto,fnac,email,telefono,activo);
             }
             
             
@@ -116,11 +115,11 @@ public class SociosDAO
         
         try
         {
-            ps=conexion.prepareStatement("insert into socios (nombre,apellido,direccion,localidad,fnac,email,telefono,activo) values (?,?,?,?,?,?,?,?)");
+            ps=conexion.prepareStatement("insert into pacientes (nombre,apellido,direccion,foto,fnac,email,telefono,activo) values (?,?,?,?,?,?,?,?)");
             ps.setString(1, s1.getNombre());
             ps.setString(2, s1.getApellido());
             ps.setString(3, s1.getDireccion());
-            ps.setString(4, s1.getLocalidad());
+            ps.setString(4, s1.getFoto());
             ps.setObject(5, s1.getFnac()); 
             ps.setString(6, s1.getMail());
             ps.setString(7, s1.getTelefono());
@@ -143,7 +142,7 @@ public class SociosDAO
         
         try
         {
-            ps=conexion.prepareStatement("delete from socios where idSocio=?");
+            ps=conexion.prepareStatement("delete from pacientes where idPaciente=?");
             ps.setInt(1,_id);            
             ps.execute();
             return true;          
@@ -161,16 +160,16 @@ public class SociosDAO
         PreparedStatement ps;        
         try
         {
-            ps=conexion.prepareStatement("update socios set nombre=?,apellido=?,direccion=?,localidad=?,fnac=?,email=?,telefono=?,activo=? where idSocio=?");
+            ps=conexion.prepareStatement("update pacientes set nombre=?,apellido=?,direccion=?,foto=?,fnac=?,email=?,telefono=?,activo=? where idPaciente=?");
             ps.setString(1, s1.getNombre());
             ps.setString(2, s1.getApellido());
             ps.setString(3, s1.getDireccion());
-            ps.setString(4, s1.getLocalidad());
+            ps.setString(4, s1.getFoto());
             ps.setObject(5, s1.getFnac()); 
             ps.setString(6, s1.getMail());
             ps.setString(7, s1.getTelefono());
             ps.setBoolean(8, s1.isActivo());
-            ps.setInt(9,s1.getIdSocio());
+            ps.setInt(9,s1.getIdPaciente());
             ps.execute();
             return true;          
             

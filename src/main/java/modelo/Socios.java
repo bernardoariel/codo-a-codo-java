@@ -4,7 +4,6 @@
  */
 package modelo;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 /**
@@ -13,36 +12,36 @@ import java.time.LocalDate;
  */
 public class Socios 
 {
-   private int idSocio;
+    private int idPaciente;
     private String nombre;
     private String apellido;
     private String direccion;
-    private String localidad;
+    private String foto;
     private LocalDate  fnac;
     private String mail;
     private String telefono;
     private boolean activo;
     
     
-    public Socios(int idSocio,String nombre,String apellido,String direccion,String localidad,LocalDate fnac,String mail,String telefono, boolean activo)
+    public Socios(int idPaciente,String nombre,String apellido,String direccion,String foto,LocalDate fnac,String mail,String telefono, boolean activo)
     {
-        this.idSocio=idSocio;
+        this.idPaciente=idPaciente;
         this.nombre=nombre;
         this.apellido=apellido;
         this.direccion=direccion;
-        this.localidad=localidad;
+        this.foto=foto;
         this.fnac=fnac;
         this.mail=mail;
         this.telefono=telefono;
         this.activo=activo;        
     }
 
-    public int getIdSocio() {
-        return idSocio;
+    public int getIdPaciente() {
+        return idPaciente;
     }
 
-    public void setIdSocio(int idSocio) {
-        this.idSocio = idSocio;
+    public void setIdPaciente(int idPaciente) {
+        this.idPaciente = idPaciente;
     }
 
     public String getNombre() {
@@ -69,12 +68,12 @@ public class Socios
         this.direccion = direccion;
     }
 
-    public String getLocalidad() {
-        return localidad;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setLocalidad(String localidad) {
-        this.localidad = localidad;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public LocalDate getFnac() {

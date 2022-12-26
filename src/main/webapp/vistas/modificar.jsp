@@ -41,7 +41,7 @@
                 <form ref="form" class="p-5" method="POST" action="SociosController?accion=actualizar" @submit.prevent="enviarForm">
                    <div class="mb-2">
                         <label for="id" class="form-label" >id</label>
-                        <input type="text" class="form-control" id="id" name="id" readonly="true"  value=<%=resultado.getIdSocio() %> >                          
+                        <input type="text" class="form-control" id="id" name="id" readonly="true"  value=<%=resultado.getIdPaciente() %> >                          
                     </div> 
                     <div class="mb-2">
                         <label for="nombre" class="form-label" >Nombre</label>
@@ -56,8 +56,8 @@
                         <input type="text" class="form-control" id="direccion" name="direccion" v-model="direccion" value=<%=resultado.getDireccion() %>  >                          
                     </div> 
                         <div class="mb-2">
-                        <label for="localidad" class="form-label" >Localidad</label>
-                        <input type="text" class="form-control" id="localidad" name="localidad" v-model="localidad" value=<%=resultado.getLocalidad() %>   >                          
+                        <label for="foto" class="form-label" >Foto</label>
+                        <input type="text" class="form-control" id="foto" name="foto" v-model="foto" value=<%=resultado.getFoto() %>   >                          
                     </div> 
                         <div class="mb-2">
                         <label for="fnac" class="form-label" >Fecha Nac</label>
@@ -92,12 +92,12 @@
             el: '#app',
             data(){
                 return{
-                    titulo:'Modificando al socio',
-                    id:"<%=resultado.getIdSocio() %>",
+                    titulo:'Modificando al Paciente',
+                    id:"<%=resultado.getIdPaciente() %>",
                     nombre: "<%=resultado.getNombre() %> ",
                     apellido:"<%=resultado.getApellido() %>",
                     direccion:"<%=resultado.getDireccion() %>",
-                    localidad:"<%=resultado.getLocalidad() %>",
+                    foto:"<%=resultado.getFoto() %>",
                     fechaNacimiento:"<%=resultado.getFnac() %>",
                     email:"<%=resultado.getMail()%>",
                     telefono:"<%=resultado.getTelefono()%>",
@@ -116,7 +116,7 @@
                     event.preventDefault()
                     this.deshabilitado = true;
                     console.log('ingresamos por aca')
-                    if(this.nombre && this.apellido && this.direccion && this.localidad && this.fechaNacimiento && this.email && this.telefono){
+                    if(this.nombre && this.apellido && this.direccion && this.foto && this.fechaNacimiento && this.email && this.telefono){
                         //alert("Campos obligatorios están ok, enviando formulario!");
                         // return true;
                         Swal.fire({
@@ -139,8 +139,8 @@
                     if(!this.email){
                         this.errores.push("El email es obligatorio. ");
                     }
-                    if(!this.localidad){
-                        this.errores.push("La localidad es obligatorio. ");
+                    if(!this.foto){
+                        this.errores.push("La Foto es obligatoria. ");
                     }
                     if(!this.fechaNacimiento){
                         this.errores.push("La Fecha de Nacimiento es obligatorio. ");

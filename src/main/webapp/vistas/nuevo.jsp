@@ -24,6 +24,7 @@
             </div>
                 <div class="row" >
                     <form ref="form" class="p-4" method="POST" action="SociosController?accion=insert" @submit="enviarForm">
+                        
                         <div class="mb-2">
                             <label for="nombre" class="form-label" >Nombre</label>
                             <input type="text" class="form-control" id="nombre" name="nombre"  v-model="nombre">  
@@ -31,7 +32,7 @@
                                     
                         </div> 
                         <div class="mb-2">
-                            <label for="apellido" class="form-label" >Apellido</label>
+                            <label for="apellido" class="form-label">Apellido</label>
                             <input type="text" class="form-control" id="apellido" name="apellido" v-model="apellido">                          
                         </div> 
                          <div class="mb-2">
@@ -39,8 +40,8 @@
                             <input type="text" class="form-control" id="direccion" name="direccion" v-model="direccion">                          
                         </div> 
                          <div class="mb-2">
-                            <label for="localidad" class="form-label" >Localidad</label>
-                            <input type="text" class="form-control" id="localidad" name="localidad" v-model="localidad" >                          
+                            <label for="foto" class="form-label" >foto</label>
+                            <input type="text" class="form-control" id="foto" name="foto" v-model="foto" >                          
                         </div> 
                           <div class="mb-2">
                             <label for="fnac" class="form-label" >Fecha Nac</label>
@@ -78,7 +79,7 @@
                     nombre: "",
                     apellido:"",
                     direccion:"",
-                    localidad:"",
+                    foto:"",
                     fechaNacimiento:"",
                     email:"",
                     telefono:"",
@@ -97,7 +98,7 @@
                     event.preventDefault()
                     this.deshabilitado = true;
                     console.log('ingresamos por aca')
-                    if(this.nombre && this.apellido && this.direccion && this.localidad && this.fechaNacimiento && this.email && this.telefono){
+                    if(this.nombre && this.apellido && this.direccion && this.foto && this.fechaNacimiento && this.email && this.telefono){
                         //alert("Campos obligatorios están ok, enviando formulario!");
                         // return true;
                         Swal.fire({
@@ -120,8 +121,8 @@
                     if(!this.email){
                         this.errores.push("El email es obligatorio. ");
                     }
-                    if(!this.localidad){
-                        this.errores.push("La localidad es obligatorio. ");
+                    if(!this.foto){
+                        this.errores.push("La Foto es obligatorio. ");
                     }
                     if(!this.fechaNacimiento){
                         this.errores.push("La Fecha de Nacimiento es obligatorio. ");

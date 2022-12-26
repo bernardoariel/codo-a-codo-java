@@ -57,11 +57,11 @@ public class SociosController extends HttpServlet
                         String nombre=request.getParameter("nombre");
                         String apellido=request.getParameter("apellido");
                         String direccion=request.getParameter("direccion");
-                        String localidad=request.getParameter("localidad");            
+                        String foto=request.getParameter("foto");            
                         LocalDate fecha =LocalDate.parse(request.getParameter("fnac"));                 
                         String email=request.getParameter("mail");
                         String telefono=request.getParameter("telefono");                                    
-                        Socios s1=new Socios(id,nombre,apellido,direccion,localidad,fecha,email,telefono,true);
+                        Socios s1=new Socios(id,nombre,apellido,direccion,foto,fecha,email,telefono,true);
 		        sociosDAO.ActualizarSocios(s1);			
 			dispatcher=request.getRequestDispatcher("vistas/socios.jsp");			
 		}
@@ -80,11 +80,11 @@ public class SociosController extends HttpServlet
 			String nombre=request.getParameter("nombre");
                         String apellido=request.getParameter("apellido");
                         String direccion=request.getParameter("direccion");
-                        String localidad=request.getParameter("localidad");            
+                        String foto=request.getParameter("foto");            
                         LocalDate fecha =LocalDate.parse(request.getParameter("fnac"));                 
                         String email=request.getParameter("mail");
                         String telefono=request.getParameter("telefono");                                     
-                        Socios s1=new Socios(0,nombre,apellido,direccion,localidad,fecha,email,telefono,true);
+                        Socios s1=new Socios(0,nombre,apellido,direccion,foto,fecha,email,telefono,true);
 		        sociosDAO.InsertSocios(s1);		
 			dispatcher=request.getRequestDispatcher("vistas/socios.jsp");
 		}        

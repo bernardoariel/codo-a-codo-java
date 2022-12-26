@@ -47,13 +47,13 @@ public class Conexion
         PreparedStatement ps;
         ResultSet rs;
         
-        ps=conexion.prepareStatement("select * from socios");
+        ps=conexion.prepareStatement("select * from pacientes");
         
         rs=ps.executeQuery();
         
         while(rs.next())
         {
-            int id=rs.getInt("idSocio");           
+            int id=rs.getInt("idPaciente");           
             boolean estado =rs.getBoolean("activo");
             System.out.println("ID:"+id+" Estado:"+estado);
         }

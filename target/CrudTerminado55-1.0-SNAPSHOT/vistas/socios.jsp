@@ -42,7 +42,7 @@
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Direccion</th>
-                                <th>Localidad</th>
+                                <th>Foto</th>
                                 <th>Fecha Nac.</th>
                                 <th>Telefono</th>
                                 <th>mail</th>
@@ -57,17 +57,17 @@
                         
                                     for(int i=0;i<resultado.size();i++)
                     {
-                    String ruta="SociosController?accion=modificar&id="+resultado.get(i).getIdSocio();	
-                    String rutaE="SociosController?accion=eliminar&id="+resultado.get(i).getIdSocio();
+                    String ruta="SociosController?accion=modificar&id="+resultado.get(i).getIdPaciente();	
+                    String rutaE="SociosController?accion=eliminar&id="+resultado.get(i).getIdPaciente();
                     %>                
                         
                     
                         <tr>
-                            <td><%=resultado.get(i).getIdSocio()%></td>
+                            <td><%=resultado.get(i).getIdPaciente()%></td>
                             <td><%=resultado.get(i).getNombre()%></td>
                             <td><%=resultado.get(i).getApellido()%></td>
                             <td><%=resultado.get(i).getDireccion()%></td>
-                            <td><%=resultado.get(i).getLocalidad()%></td>
+                            <td> <img src="<%=resultado.get(i).getFoto()%>" class="img-rounded" width="80px"></td>
                             <td><%=resultado.get(i).getFnac()%></td>
                             <td><%=resultado.get(i).getTelefono()%></td>
                             <td><%=resultado.get(i).getMail()%></td>
