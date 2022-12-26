@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>LISTADO DE PACIENTES</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSS only -->
@@ -18,7 +18,7 @@
     <body>
         
         <div class="container" id="app">
-            <h1 class="text-center" >Añadir Alumno</h1>
+            <h1 class="text-center" >{{title}}</h1>
             <div v-if="errores.length!=0" class="alert alert-danger">
                 {{mostrarErrores}}
             </div>
@@ -28,7 +28,7 @@
                         <div class="mb-2">
                             <label for="nombre" class="form-label" >Nombre</label>
                             <input type="text" class="form-control" id="nombre" name="nombre"  v-model="nombre">  
-                            {{nombre}}              
+                                     
                                     
                         </div> 
                         <div class="mb-2">
@@ -76,6 +76,7 @@
             el: '#app',
             data(){
                 return{
+                    title:'Añadir pacientes',
                     nombre: "",
                     apellido:"",
                     direccion:"",
